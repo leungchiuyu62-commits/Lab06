@@ -1,6 +1,41 @@
 #include <stdio.h>
 
 // TODO: write your code here
+#define MAX_NUM_EMPLOYEE 3
+
+struct Employee
+{
+    int employeeID;
+    char name[50];
+    float salary;
+};
+
+int highestSalary(struct Employee employees[])
+{
+    int index = 0;
+
+    for (int i = 1; i < MAX_NUM_EMPLOYEE; i++)
+    {
+        if (employees[i].salary > employees[index].salary)
+        {
+            index = i;
+        }
+    }
+
+    return index;
+}
+
+float averageSalary(struct Employee employees[])
+{
+    float total = 0.0f;
+
+    for (int i = 0; i < MAX_NUM_EMPLOYEE; i++)
+    {
+        total += employees[i].salary;
+    }
+
+    return total / MAX_NUM_EMPLOYEE;
+}
 
 // DO NOT change the code below
 void fillInformation( struct Employee employees[] )
